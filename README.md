@@ -14,12 +14,15 @@ Our API documentation is available at https://docs.syndicate.io.
 import { SyndicateClient } from "@syndicateio/syndicate-node";
 
 const syndicate = new SyndicateClient({ token: 'YOUR_ACCESS_TOKEN' })
+
 const tx = await syndicate.transact.sendTransaction({
-  projectId,
-  contractAddress,
-  chainId,
-  functionSignature,
-  args,
+  projectId: 'eb7dab54-f66b-4739-8c18-f5a6196f7117',
+  contractAddress: '0x4Bc7a03C46c0BBb290d5455ff7f03d30263809e4',
+  chainId: 80001,
+  functionSignature: 'mintTo(address to)',
+  args: {
+    to: '0x18F33CEf45817C428d98C4E188A770191fDD4B79'
+  },
 })
 console.log('Transaction ID Received:', tx.transactionId)
 ```
