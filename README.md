@@ -2,7 +2,7 @@
 
 [![npm shield](https://img.shields.io/npm/v/@syndicateio/syndicate-node)](https://www.npmjs.com/package/@syndicateio/syndicate-node)
 
-The Syndicate Node.js library provides access to a selection of endpoints to the Syndicate API.
+The Syndicate Node.js library provides access to a selection of endpoints to the Syndicate API. For full functionality of our API please view the documentation below.
 
 ## Documentation
 
@@ -31,4 +31,4 @@ console.log('Transaction ID Received:', tx.transactionId)
 
 ## Beta status
 
-This SDK is in beta, and there may be breaking changes between versions without a major version update.
+This SDK is in beta, and there may be breaking changes between versions without a major version update. To use the API directly, please view the [API documentation](https://docs.syndicate.io).
