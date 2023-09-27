@@ -10,6 +10,8 @@ Our API documentation is available at https://docs.syndicate.io.
 
 ## Usage
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/syndicate-typescript?file=app.ts&view=editor)
+
 ```typescript
 import { SyndicateClient } from "@syndicateio/syndicate-node";
 
