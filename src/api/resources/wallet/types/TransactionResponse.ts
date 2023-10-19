@@ -11,7 +11,10 @@ export interface TransactionResponse {
     invalid: boolean;
     contractAddress: string;
     functionSignature: string;
+    /** ABI encoded representation of the function name and parameters passed as input */
     data: string;
+    /** Decoded function arguments passed as input to the contract's function identified by 'functionSignature' */
+    decodedData?: Record<string, unknown>;
     value: string;
     createdAt: Date;
     updatedAt: Date;

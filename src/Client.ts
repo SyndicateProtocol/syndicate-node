@@ -3,8 +3,8 @@
  */
 
 import * as core from "./core";
-import { Wallet } from "./api/resources/wallet/client/Client";
 import { Transact } from "./api/resources/transact/client/Client";
+import { Wallet } from "./api/resources/wallet/client/Client";
 
 export declare namespace SyndicateClient {
     interface Options {
@@ -19,15 +19,15 @@ export declare namespace SyndicateClient {
 export class SyndicateClient {
     constructor(protected readonly _options: SyndicateClient.Options) {}
 
-    protected _wallet: Wallet | undefined;
-
-    public get wallet(): Wallet {
-        return (this._wallet ??= new Wallet(this._options));
-    }
-
     protected _transact: Transact | undefined;
 
     public get transact(): Transact {
         return (this._transact ??= new Transact(this._options));
+    }
+
+    protected _wallet: Wallet | undefined;
+
+    public get wallet(): Wallet {
+        return (this._wallet ??= new Wallet(this._options));
     }
 }

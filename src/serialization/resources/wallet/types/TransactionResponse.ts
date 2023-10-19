@@ -17,6 +17,7 @@ export const TransactionResponse: core.serialization.ObjectSchema<
     contractAddress: core.serialization.string(),
     functionSignature: core.serialization.string(),
     data: core.serialization.string(),
+    decodedData: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
     value: core.serialization.string(),
     createdAt: core.serialization.date(),
     updatedAt: core.serialization.date(),
@@ -34,6 +35,7 @@ export declare namespace TransactionResponse {
         contractAddress: string;
         functionSignature: string;
         data: string;
+        decodedData?: Record<string, unknown> | null;
         value: string;
         createdAt: string;
         updatedAt: string;
