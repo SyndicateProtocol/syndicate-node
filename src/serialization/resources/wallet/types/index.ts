@@ -1,5 +1,6 @@
 export * from "./Wallet";
 export * from "./CreateWalletRequest";
+export * from "./WalletType";
 export * from "./CreateWalletResponse";
 export * from "./CreateWalletErrorBody";
 export * from "./WalletWithTxCountAndBalance";

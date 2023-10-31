@@ -38,7 +38,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             body: await serializers.wallet.CreateWalletRequest.jsonOrThrow(request, {
@@ -104,7 +104,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             body: await serializers.wallet.RetireWalletRequest.jsonOrThrow(request, {
@@ -167,7 +167,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
@@ -217,8 +217,12 @@ export class Wallet {
         request: Syndicate.wallet.GetRequestsByProjectIdRequest = {},
         requestOptions?: Wallet.RequestOptions
     ): Promise<Syndicate.wallet.TransactionRequestsByProjectResponse> {
-        const { page, limit, invalid } = request;
+        const { search, page, limit, invalid } = request;
         const _queryParams = new URLSearchParams();
+        if (search != null) {
+            _queryParams.append("search", search);
+        }
+
         if (page != null) {
             _queryParams.append("page", page.toString());
         }
@@ -238,7 +242,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -302,7 +306,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -387,7 +391,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -438,7 +442,7 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.302",
+                "X-Fern-SDK-Version": "0.0.387",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

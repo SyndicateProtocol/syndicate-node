@@ -5,6 +5,9 @@
 import * as Syndicate from "../../../..";
 
 export interface GetTransactionsByProjectIdRequest {
+    /**
+     * Optional search parameter will filter by transaction hash, wallet address, or transaction id
+     */
     search?: string;
     page?: number;
     limit?: number;

@@ -12,11 +12,13 @@ export const CreateWalletRequest: core.serialization.ObjectSchema<
 > = core.serialization.object({
     projectId: core.serialization.string(),
     chainId: core.serialization.number(),
+    type: core.serialization.lazy(async () => (await import("../../..")).wallet.WalletType).optional(),
 });
 
 export declare namespace CreateWalletRequest {
     interface Raw {
         projectId: string;
         chainId: number;
+        type?: serializers.wallet.WalletType.Raw | null;
     }
 }

@@ -3,6 +3,10 @@
  */
 
 export interface GetRequestsByProjectIdRequest {
+    /**
+     * Optional search parameter will filter by function signature, contract address, or transaction id
+     */
+    search?: string;
     page?: number;
     limit?: number;
     invalid?: boolean;
