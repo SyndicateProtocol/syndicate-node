@@ -1,6 +1,6 @@
 {
     "name": "@syndicateio/syndicate-node",
-    "version": "0.0.387",
+    "version": "0.0.404",
     "private": false,
     "repository": "https://github.com/SyndicateProtocol/syndicate-node",
     "main": "./index.js",
@@ -11,9 +11,9 @@
         "prepack": "cp -rv dist/. ."
     },
     "dependencies": {
-        "@ungap/url-search-params": "0.2.2",
         "url-join": "4.0.1",
         "@types/url-join": "4.0.1",
+        "@ungap/url-search-params": "0.2.2",
         "js-base64": "3.7.2",
         "axios": "0.27.2"
     },

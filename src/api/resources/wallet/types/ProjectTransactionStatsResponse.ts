@@ -3,6 +3,8 @@
  */
 
 export interface ProjectTransactionStatsResponse {
-    numberOfTransactions: number;
+    numberOfConfirmedTransactions: number;
+    numberOfSubmittedTransactions: number;
+    numberOfPendingTransactions: number;
     numberOfFailedTransactions: number;
 }

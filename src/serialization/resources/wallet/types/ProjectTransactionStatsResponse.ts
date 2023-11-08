@@ -10,13 +10,17 @@ export const ProjectTransactionStatsResponse: core.serialization.ObjectSchema<
     serializers.wallet.ProjectTransactionStatsResponse.Raw,
     Syndicate.wallet.ProjectTransactionStatsResponse
 > = core.serialization.object({
-    numberOfTransactions: core.serialization.number(),
+    numberOfConfirmedTransactions: core.serialization.number(),
+    numberOfSubmittedTransactions: core.serialization.number(),
+    numberOfPendingTransactions: core.serialization.number(),
     numberOfFailedTransactions: core.serialization.number(),
 });
 
 export declare namespace ProjectTransactionStatsResponse {
     interface Raw {
-        numberOfTransactions: number;
+        numberOfConfirmedTransactions: number;
+        numberOfSubmittedTransactions: number;
+        numberOfPendingTransactions: number;
         numberOfFailedTransactions: number;
     }
 }

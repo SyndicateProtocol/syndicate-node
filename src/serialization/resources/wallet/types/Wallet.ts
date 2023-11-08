@@ -16,6 +16,7 @@ export const Wallet: core.serialization.ObjectSchema<serializers.wallet.Wallet.R
         projectId: core.serialization.string(),
         createdAt: core.serialization.date(),
         updatedAt: core.serialization.date(),
+        walletType: core.serialization.lazy(async () => (await import("../../..")).wallet.WalletType),
     });
 
 export declare namespace Wallet {
@@ -28,5 +29,6 @@ export declare namespace Wallet {
         projectId: string;
         createdAt: string;
         updatedAt: string;
+        walletType: serializers.wallet.WalletType.Raw;
     }
 }
