@@ -1,6 +1,6 @@
 {
     "name": "@syndicateio/syndicate-node",
-    "version": "0.0.427",
+    "version": "0.0.428",
     "private": false,
     "repository": "https://github.com/SyndicateProtocol/syndicate-node",
     "main": "./index.js",
