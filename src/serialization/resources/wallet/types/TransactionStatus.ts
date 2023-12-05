@@ -9,8 +9,8 @@ import * as core from "../../../../core";
 export const TransactionStatus: core.serialization.Schema<
     serializers.wallet.TransactionStatus.Raw,
     Syndicate.wallet.TransactionStatus
-> = core.serialization.enum_(["PENDING", "SUBMITTED", "CONFIRMED"]);
+> = core.serialization.enum_(["PENDING", "PROCESSED", "SUBMITTED", "CONFIRMED"]);
 
 export declare namespace TransactionStatus {
-    type Raw = "PENDING" | "SUBMITTED" | "CONFIRMED";
+    type Raw = "PENDING" | "PROCESSED" | "SUBMITTED" | "CONFIRMED";
 }

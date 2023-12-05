@@ -4,6 +4,7 @@ export * from "./WalletType";
 export * from "./CreateWalletResponse";
 export * from "./CreateWalletErrorBody";
 export * from "./WalletWithTxCountAndBalance";
+export * from "./ToggleIsActiveRequest";
 export * from "./RetireWalletRequest";
 export * from "./RetireWalletResponse";
 export * from "./TransactionResponse";
