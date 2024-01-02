@@ -7,6 +7,7 @@ import * as errors from "../../../../errors";
 export class WalletNotFoundError extends errors.SyndicateError {
     constructor() {
         super({
+            message: "WalletNotFoundError",
             statusCode: 404,
         });
         Object.setPrototypeOf(this, WalletNotFoundError.prototype);

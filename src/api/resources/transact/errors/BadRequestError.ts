@@ -8,6 +8,7 @@ import * as Syndicate from "../../..";
 export class BadRequestError extends errors.SyndicateError {
     constructor(body: Syndicate.transact.ErrorBody) {
         super({
+            message: "BadRequestError",
             statusCode: 400,
             body: body,
         });

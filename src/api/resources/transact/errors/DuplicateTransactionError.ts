@@ -8,6 +8,7 @@ import * as Syndicate from "../../..";
 export class DuplicateTransactionError extends errors.SyndicateError {
     constructor(body: Syndicate.transact.ErrorBody) {
         super({
+            message: "DuplicateTransactionError",
             statusCode: 409,
             body: body,
         });

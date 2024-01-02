@@ -8,6 +8,7 @@ import * as Syndicate from "../../..";
 export class InvalidRequestIdError extends errors.SyndicateError {
     constructor(body: Syndicate.transact.ErrorBody) {
         super({
+            message: "InvalidRequestIdError",
             statusCode: 422,
             body: body,
         });

@@ -8,6 +8,7 @@ import * as Syndicate from "../../..";
 export class CreateWalletError extends errors.SyndicateError {
     constructor(body: Syndicate.wallet.CreateWalletErrorBody) {
         super({
+            message: "CreateWalletError",
             statusCode: 500,
             body: body,
         });

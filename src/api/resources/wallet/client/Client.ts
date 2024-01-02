@@ -8,7 +8,6 @@ import * as serializers from "../../../../serialization";
 import * as environments from "../../../../environments";
 import urlJoin from "url-join";
 import * as errors from "../../../../errors";
-import { default as URLSearchParams } from "@ungap/url-search-params";
 
 export declare namespace Wallet {
     interface Options {
@@ -17,6 +16,7 @@ export declare namespace Wallet {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -38,13 +38,14 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             body: await serializers.wallet.CreateWalletRequest.jsonOrThrow(request, {
                 unrecognizedObjectKeys: "strip",
             }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.CreateWalletResponse.parseOrThrow(_response.body, {
@@ -104,13 +105,14 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             body: await serializers.wallet.RetireWalletRequest.jsonOrThrow(request, {
                 unrecognizedObjectKeys: "strip",
             }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.RetireWalletResponse.parseOrThrow(_response.body, {
@@ -163,13 +165,14 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             body: await serializers.wallet.ToggleIsActiveRequest.jsonOrThrow(request, {
                 unrecognizedObjectKeys: "strip",
             }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.Wallet.parseOrThrow(_response.body, {
@@ -226,10 +229,11 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.TransactionResponse.parseOrThrow(_response.body, {
@@ -277,21 +281,21 @@ export class Wallet {
         requestOptions?: Wallet.RequestOptions
     ): Promise<Syndicate.wallet.TransactionRequestsByProjectResponse> {
         const { search, page, limit, invalid } = request;
-        const _queryParams = new URLSearchParams();
+        const _queryParams: Record<string, string | string[]> = {};
         if (search != null) {
-            _queryParams.append("search", search);
+            _queryParams["search"] = search;
         }
 
         if (page != null) {
-            _queryParams.append("page", page.toString());
+            _queryParams["page"] = page.toString();
         }
 
         if (limit != null) {
-            _queryParams.append("limit", limit.toString());
+            _queryParams["limit"] = limit.toString();
         }
 
         if (invalid != null) {
-            _queryParams.append("invalid", invalid.toString());
+            _queryParams["invalid"] = invalid.toString();
         }
 
         const _response = await core.fetcher({
@@ -301,11 +305,12 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.TransactionRequestsByProjectResponse.parseOrThrow(_response.body, {
@@ -353,9 +358,9 @@ export class Wallet {
         requestOptions?: Wallet.RequestOptions
     ): Promise<Syndicate.wallet.WalletWithTxCountAndBalance[]> {
         const { withData } = request;
-        const _queryParams = new URLSearchParams();
+        const _queryParams: Record<string, string | string[]> = {};
         if (withData != null) {
-            _queryParams.append("withData", withData.toString());
+            _queryParams["withData"] = withData.toString();
         }
 
         const _response = await core.fetcher({
@@ -365,11 +370,12 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.getWalletsByProject.Response.parseOrThrow(_response.body, {
@@ -416,30 +422,28 @@ export class Wallet {
         requestOptions?: Wallet.RequestOptions
     ): Promise<Syndicate.wallet.TransactionsByProjectResponse> {
         const { search, page, limit, reverted, status } = request;
-        const _queryParams = new URLSearchParams();
+        const _queryParams: Record<string, string | string[]> = {};
         if (search != null) {
-            _queryParams.append("search", search);
+            _queryParams["search"] = search;
         }
 
         if (page != null) {
-            _queryParams.append("page", page.toString());
+            _queryParams["page"] = page.toString();
         }
 
         if (limit != null) {
-            _queryParams.append("limit", limit.toString());
+            _queryParams["limit"] = limit.toString();
         }
 
         if (reverted != null) {
-            _queryParams.append("reverted", reverted.toString());
+            _queryParams["reverted"] = reverted.toString();
         }
 
         if (status != null) {
             if (Array.isArray(status)) {
-                for (const _item of status) {
-                    _queryParams.append("status", _item);
-                }
+                _queryParams["status"] = status.map((item) => item);
             } else {
-                _queryParams.append("status", status);
+                _queryParams["status"] = status;
             }
         }
 
@@ -450,11 +454,12 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.TransactionsByProjectResponse.parseOrThrow(_response.body, {
@@ -501,10 +506,11 @@ export class Wallet {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.wallet.ProjectTransactionStatsResponse.parseOrThrow(_response.body, {

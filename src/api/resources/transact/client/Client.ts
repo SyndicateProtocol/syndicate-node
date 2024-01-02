@@ -16,6 +16,7 @@ export declare namespace Transact {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
@@ -40,13 +41,14 @@ export class Transact {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.465",
+                "X-Fern-SDK-Version": "0.0.466",
             },
             contentType: "application/json",
             body: await serializers.transact.SendTransactionRequest.jsonOrThrow(request, {
                 unrecognizedObjectKeys: "strip",
             }),
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
+            maxRetries: requestOptions?.maxRetries,
         });
         if (_response.ok) {
             return await serializers.transact.SendTransactionResponse.parseOrThrow(_response.body, {

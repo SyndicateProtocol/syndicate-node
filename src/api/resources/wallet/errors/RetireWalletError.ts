@@ -7,6 +7,7 @@ import * as errors from "../../../../errors";
 export class RetireWalletError extends errors.SyndicateError {
     constructor() {
         super({
+            message: "RetireWalletError",
             statusCode: 500,
         });
         Object.setPrototypeOf(this, RetireWalletError.prototype);

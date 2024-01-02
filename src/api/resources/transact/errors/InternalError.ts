@@ -7,6 +7,7 @@ import * as errors from "../../../../errors";
 export class InternalError extends errors.SyndicateError {
     constructor() {
         super({
+            message: "InternalError",
             statusCode: 500,
         });
         Object.setPrototypeOf(this, InternalError.prototype);

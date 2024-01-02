@@ -7,6 +7,7 @@ import * as errors from "../../../../errors";
 export class TransactionNotFoundError extends errors.SyndicateError {
     constructor() {
         super({
+            message: "TransactionNotFoundError",
             statusCode: 404,
         });
         Object.setPrototypeOf(this, TransactionNotFoundError.prototype);

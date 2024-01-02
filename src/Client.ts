@@ -14,6 +14,7 @@ export declare namespace SyndicateClient {
 
     interface RequestOptions {
         timeoutInSeconds?: number;
+        maxRetries?: number;
     }
 }
 
