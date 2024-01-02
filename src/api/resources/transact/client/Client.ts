@@ -40,7 +40,7 @@ export class Transact {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@calebguy/testing",
-                "X-Fern-SDK-Version": "0.0.464",
+                "X-Fern-SDK-Version": "0.0.465",
             },
             contentType: "application/json",
             body: await serializers.transact.SendTransactionRequest.jsonOrThrow(request, {
