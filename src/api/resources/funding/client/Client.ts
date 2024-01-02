@@ -47,8 +47,8 @@ export class Funding {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

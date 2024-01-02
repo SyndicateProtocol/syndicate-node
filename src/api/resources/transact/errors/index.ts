@@ -1,4 +1,4 @@
-export * from "./ImATeapotError";
+export * from "./DuplicateTransactionError";
 export * from "./InternalError";
-export * from "./MalformedFunctionDataError";
+export * from "./BadRequestError";
 export * from "./InvalidRequestIdError";

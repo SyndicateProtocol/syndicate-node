@@ -15,4 +15,6 @@ export interface SendTransactionRequest {
     functionSignature: string;
     /** (Optional) The function arguments for the transaction if any. The keys are the argument names or index from the provided function signature and the values are the argument values. */
     args?: Record<string, unknown>;
+    organizationId: string;
+    organizationTier: string;
 }

@@ -5,12 +5,12 @@
 import * as errors from "../../../../errors";
 import * as Syndicate from "../../..";
 
-export class MalformedFunctionDataError extends errors.SyndicateError {
-    constructor(body: Syndicate.transact.ErrorWithMessage) {
+export class BadRequestError extends errors.SyndicateError {
+    constructor(body: Syndicate.transact.ErrorBody) {
         super({
             statusCode: 400,
             body: body,
         });
-        Object.setPrototypeOf(this, MalformedFunctionDataError.prototype);
+        Object.setPrototypeOf(this, BadRequestError.prototype);
     }
 }

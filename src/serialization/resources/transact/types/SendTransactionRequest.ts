@@ -16,6 +16,8 @@ export const SendTransactionRequest: core.serialization.ObjectSchema<
     chainId: core.serialization.number(),
     functionSignature: core.serialization.string(),
     args: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optional(),
+    organizationId: core.serialization.string(),
+    organizationTier: core.serialization.string(),
 });
 
 export declare namespace SendTransactionRequest {
@@ -26,5 +28,7 @@ export declare namespace SendTransactionRequest {
         chainId: number;
         functionSignature: string;
         args?: Record<string, unknown> | null;
+        organizationId: string;
+        organizationTier: string;
     }
 }

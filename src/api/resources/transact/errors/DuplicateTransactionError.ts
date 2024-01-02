@@ -5,12 +5,12 @@
 import * as errors from "../../../../errors";
 import * as Syndicate from "../../..";
 
-export class InvalidRequestIdError extends errors.SyndicateError {
+export class DuplicateTransactionError extends errors.SyndicateError {
     constructor(body: Syndicate.transact.ErrorBody) {
         super({
-            statusCode: 422,
+            statusCode: 409,
             body: body,
         });
-        Object.setPrototypeOf(this, InvalidRequestIdError.prototype);
+        Object.setPrototypeOf(this, DuplicateTransactionError.prototype);
     }
 }

@@ -37,8 +37,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             body: await serializers.wallet.CreateWalletRequest.jsonOrThrow(request, {
@@ -103,8 +103,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             body: await serializers.wallet.RetireWalletRequest.jsonOrThrow(request, {
@@ -162,8 +162,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             body: await serializers.wallet.ToggleIsActiveRequest.jsonOrThrow(request, {
@@ -225,8 +225,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,
@@ -300,8 +300,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -364,8 +364,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -449,8 +449,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -500,8 +500,8 @@ export class Wallet {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             timeoutMs: requestOptions?.timeoutInSeconds != null ? requestOptions.timeoutInSeconds * 1000 : 60000,

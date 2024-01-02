@@ -6,14 +6,14 @@ import * as serializers from "../../..";
 import * as Syndicate from "../../../../api";
 import * as core from "../../../../core";
 
-export const ErrorWithMessage: core.serialization.ObjectSchema<
-    serializers.transact.ErrorWithMessage.Raw,
-    Syndicate.transact.ErrorWithMessage
+export const ErrorBody: core.serialization.ObjectSchema<
+    serializers.transact.ErrorBody.Raw,
+    Syndicate.transact.ErrorBody
 > = core.serialization.object({
     message: core.serialization.string(),
 });
 
-export declare namespace ErrorWithMessage {
+export declare namespace ErrorBody {
     interface Raw {
         message: string;
     }

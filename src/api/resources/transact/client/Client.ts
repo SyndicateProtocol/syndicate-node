@@ -24,8 +24,8 @@ export class Transact {
 
     /**
      * Send transaction to blockchain
-     * @throws {@link Syndicate.transact.MalformedFunctionDataError}
-     * @throws {@link Syndicate.transact.ImATeapotError}
+     * @throws {@link Syndicate.transact.DuplicateTransactionError}
+     * @throws {@link Syndicate.transact.BadRequestError}
      * @throws {@link Syndicate.transact.InternalError}
      * @throws {@link Syndicate.transact.InvalidRequestIdError}
      */
@@ -39,8 +39,8 @@ export class Transact {
             headers: {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
-                "X-Fern-SDK-Name": "@syndicateio/syndicate-node",
-                "X-Fern-SDK-Version": "0.0.449",
+                "X-Fern-SDK-Name": "@calebguy/testing",
+                "X-Fern-SDK-Version": "0.0.464",
             },
             contentType: "application/json",
             body: await serializers.transact.SendTransactionRequest.jsonOrThrow(request, {
@@ -59,22 +59,29 @@ export class Transact {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
-                case 400:
-                    throw new Syndicate.transact.MalformedFunctionDataError(
-                        await serializers.transact.ErrorWithMessage.parseOrThrow(_response.error.body, {
+                case 409:
+                    throw new Syndicate.transact.DuplicateTransactionError(
+                        await serializers.transact.ErrorBody.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
                             breadcrumbsPrefix: ["response"],
                         })
                     );
-                case 418:
-                    throw new Syndicate.transact.ImATeapotError();
+                case 400:
+                    throw new Syndicate.transact.BadRequestError(
+                        await serializers.transact.ErrorBody.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        })
+                    );
                 case 500:
                     throw new Syndicate.transact.InternalError();
                 case 422:
                     throw new Syndicate.transact.InvalidRequestIdError(
-                        await serializers.transact.ErrorWithMessage.parseOrThrow(_response.error.body, {
+                        await serializers.transact.ErrorBody.parseOrThrow(_response.error.body, {
                             unrecognizedObjectKeys: "passthrough",
                             allowUnrecognizedUnionMembers: true,
                             allowUnrecognizedEnumValues: true,
